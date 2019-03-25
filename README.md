@@ -1,16 +1,19 @@
-## 스탬프팡 OPEN API
-	종이 쿠폰을 대신하여, 온라인에서 스탬프(포인트) 적립 기능을 제공하는 서비스입니다!
-	소상공인들을 위한 서비스! 이용료는 무료입니다!
-	스탬프팡을 이용해 주시는 가맹점 점주 분들을 위해 OPEN API를 제공합니다.
-	스탬프팡 적립/차감하기 및 보유 스탬프 수(포인트) 조회, 적립/차감 내역 조회 API를 만들어 보았습니다.
+# 스탬프팡 OPEN API
+종이 쿠폰을 대신하여, 온라인에서 스탬프(포인트) 적립 기능을 제공하는 서비스입니다!
 
-	기존에 적립/차감할 수 있는 API를 원하셨던 점주분의 요청에 따라,
-	고객의 휴대폰 번호는 물론이고, 스탬프팡 고객의 고유번호로도 API를 사용할 수 있도록 만들었습니다.
+소상공인들을 위한 서비스! 이용료는 무료입니다!
 
-	API 사용에 불편함이 있으시면 스탬프팡으로 문의하세요!
+스탬프팡을 이용해 주시는 가맹점 점주 분들을 위해 OPEN API를 제공합니다.
 
-	- 스탬프팡 이메일 : help@stampang.com
-	- 스탬프팡 홈페이지 : https://stampang.com
+스탬프팡 적립/차감하기 및 보유 스탬프 수(포인트) 조회, 적립/차감 내역 조회 API를 만들어 보았습니다.
+
+기존에 적립/차감할 수 있는 API를 원하셨던 점주분의 요청에 따라,
+고객의 휴대폰 번호는 물론이고, 스탬프팡 고객의 고유번호로도 API를 사용할 수 있도록 만들었습니다.
+
+API 사용에 불편함이 있으시면 스탬프팡으로 문의하세요!
+
+- 스탬프팡 이메일 : help@stampang.com
+- 스탬프팡 홈페이지 : https://stampang.com
 
 
 
@@ -50,7 +53,40 @@
  | count | 적립/차감 스탬프수(포인트) | 스탬프의 경우 최대 100까지 가능 | O |
  
  
-```python 
+```ruby
+# ruby 호출 예시 (post방식)
+
+require 'net/http'
+url = "http://stampang-test.makeshop.co.kr/api/open/history"
+
+data = Hash.new
+data['id'] = '상점 고유번호'
+data['device_id']= 'openapi'
+data['auth_code'] = '인증키'
+data['number'] = '고객 휴대폰 번호'
+data['type']='phone'
+data['page']=1
+data['count'] = 50
+
+uri = URI.parse(url)
+request = Net::HTTP::Post.new(uri)
+request.set_form_data(data)
+
+req_options = {
+	use_ssl: uri.scheme == "https",
+}
+
+response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+	http.request(request)
+end
+
+if response.code =="200"
+	jdata = Json.parse(response.body)  #  결과
+end
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+# python 호출 예시 (get방식)
 import request
 	
 res = request.get("http://stampang-test.makeshop.co.kr/api/open/history?id=1&device=openapi&auth_code=1117c648c4a5ca29dc2eb61f60e52dbe8&number=01054771431&type=phone&page=1&count=50")
