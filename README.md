@@ -117,7 +117,7 @@ data['count'] = 50
 
 res=requests.post(url, data=data)
 
-jdata = r.json()  #  JSON 결과
+jdata = res.json()  #  JSON 결과
 ```
 
 
