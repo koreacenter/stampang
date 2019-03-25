@@ -79,7 +79,7 @@
  | count | 한 페이지에 노출되는 데이터 수 (1~100) | 최대 100개까지만 가능  | X |
 
 ### 2) 호출 결과 정의 (response)
-
+result가 false 인 경우 list 자체가 없음
 <table>
 	<tr>
 		<td colspan="2">필드명</td>
@@ -131,7 +131,6 @@
 	</tr>
 </table>
 
-* result가 false 인 경우 list 자체가 없음
 
 ### 3) API 호출 해보기
 
