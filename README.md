@@ -8,6 +8,7 @@
 스탬프팡 적립/차감하기 및 보유 스탬프 수(포인트) 조회, 적립/차감 내역 조회 API를 만들어 보았습니다.
 
 기존에 적립/차감할 수 있는 API를 원하셨던 점주분의 요청에 따라,
+
 고객의 휴대폰 번호는 물론이고, 스탬프팡 고객의 고유번호로도 API를 사용할 수 있도록 만들었습니다.
 
 API 사용에 불편함이 있으시면 스탬프팡으로 문의하세요!
@@ -52,8 +53,18 @@ API 사용에 불편함이 있으시면 스탬프팡으로 문의하세요!
  | number | 적립/차감 휴대폰번호(혹은 스탬프팡 고객번호) |  | O |
  | count | 적립/차감 스탬프수(포인트) | 스탬프의 경우 최대 100까지 가능 | O |
  
+
+
+### 2) 호출 결과 정의 (response)
  
+ | 필드명 | 설명 | 비고 |
+ | ------------- | ------------- | ------------- |
+ | result | 적립/차감 성공 여부 | true, false |
+ | msg | 결과 메세지 | 성공시 "ok" , 실패시 실패사유 |
+ | total_point | 보유 스탬프(포인트) |  result가 true일 경우만 있음 |
+
 ```ruby
+### 예시 1 ###
 # ruby 호출 예시 (post방식)
 
 require 'net/http'
@@ -84,7 +95,7 @@ if response.code =="200"
 	jdata = Json.parse(response.body)  #  결과
 end
 
-''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+### 예시 2 ####
 
 # python 호출 예시 (get방식)
 import request
@@ -92,18 +103,6 @@ import request
 res = request.get("http://stampang-test.makeshop.co.kr/api/open/history?id=1&device=openapi&auth_code=1117c648c4a5ca29dc2eb61f60e52dbe8&number=01054771431&type=phone&page=1&count=50")
 jdata = res.json() # JSON 형태의 결과값 
 ```
-
-
-
-### 2) 호출 결과 정의 (response)
- 
- | 필드명 | 설명 | 비고 |
- | ------------- | ------------- | ------------- |
- | result | 적립/차감 성공 여부 | true, false |
- | msg | 결과 메세지 | 성공시 "ok" , 실패시 실패사유 |
- | total_point | 보유 스탬프(포인트) | |
-
-
 
 
 ## 002. 적립/차감 내역 조회 API
