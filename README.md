@@ -49,6 +49,15 @@
  | number | 적립/차감 휴대폰번호(혹은 스탬프팡 고객번호) |  | O |
  | count | 적립/차감 스탬프수(포인트) | 스탬프의 경우 최대 100까지 가능 | O |
  
+ 
+```python 
+import request
+	
+res = request.get("http://stampang-test.makeshop.co.kr/api/open/history?id=1&device=openapi&auth_code=1117c648c4a5ca29dc2eb61f60e52dbe8&number=01054771431&type=phone&page=1&count=50")
+jdata = res.json() # JSON 형태의 결과값 
+```
+
+
 
 ### 2) 호출 결과 정의 (response)
  
@@ -58,8 +67,7 @@
  | msg | 결과 메세지 | 성공시 "ok" , 실패시 실패사유 |
  | total_point | 보유 스탬프(포인트) | |
 
-### 3) API 호출 해보기
- * 는 아직 미완성
+
 
 
 ## 002. 적립/차감 내역 조회 API
@@ -132,9 +140,6 @@ result가 false 인 경우 list 자체가 없음
 </table>
 
 
-### 3) API 호출 해보기
-
- * 는 아직 미완성
 
 
 
@@ -160,5 +165,3 @@ result가 false 인 경우 list 자체가 없음
  | total_count | 보유 스탬프(포인트) | |
 
 
-### 3) API 호출 해보기
- * 는 아직 미완성
