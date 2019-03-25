@@ -186,7 +186,7 @@ result가 false 인 경우 list 자체가 없음
 	<tr>
 		<td> date </td>
 		<td> 적립/차감한 날짜 </td>
-		<td> YY-mm-dd H:i:s </td>
+		<td> UTC  </td>
 	</tr>
 </table>
 
