@@ -69,7 +69,7 @@ API 사용에 불편함이 있으시면 스탬프팡으로 문의하세요!
 # ruby 호출 예시 (post방식)
 
 require 'net/http'
-url = "http://stampang-test.makeshop.co.kr/api/open/history"
+url = "http://stampang.com/api/open/history"
 
 data = Hash.new
 data['id'] = '상점 고유번호'
@@ -104,7 +104,7 @@ end
 # python 호출 예시 (get방식)
 import requests
 
-url = "http://stampang-test.makeshop.co.kr/api/open/history"
+url = "http://stampang.com/api/open/history"
 
 data = Hash.new
 data['id'] = '상점 고유번호'
