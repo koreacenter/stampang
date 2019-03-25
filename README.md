@@ -69,16 +69,15 @@ API 사용에 불편함이 있으시면 스탬프팡으로 문의하세요!
 # ruby 호출 예시 (post방식)
 
 require 'net/http'
-url = "https://stampang.com/api/open/history"
+url = "https://stampang.com/api/open/save"  #  차감시 "https://stampang.com/api/open/use"
 
 data = Hash.new
 data['id'] = '상점 고유번호'
-data['device_id']= 'openapi'
 data['auth_code'] = '인증키'
-data['number'] = '고객 휴대폰 번호'
+data['device']= 'openapi'
 data['type']='phone'
-data['page']=1
-data['count'] = 50
+data['number'] = '고객 휴대폰 번호'
+data['count'] = 2
 
 uri = URI.parse(url)
 request = Net::HTTP::Post.new(uri)
@@ -104,16 +103,15 @@ end
 # python 호출 예시 (get방식)
 import requests
 
-url = "https://stampang.com/api/open/history"
+url = "https://stampang.com/api/open/save"  #  차감시 "https://stampang.com/api/open/use"
 
 data = Hash.new
 data['id'] = '상점 고유번호'
-data['device_id']= 'openapi'
 data['auth_code'] = '인증키'
-data['number'] = '고객 휴대폰 번호'
+data['device']= 'openapi'
 data['type']='phone'
-data['page']=1
-data['count'] = 50
+data['number'] = '고객 휴대폰 번호'
+data['count'] = 2
 
 res=requests.post(url, data=data)
 
@@ -191,7 +189,60 @@ result가 false 인 경우 list 자체가 없음
 </table>
 
 
+```ruby
+# ruby 호출 예시 (post방식)
 
+require 'net/http'
+url = "https://stampang.com/api/open/history"
+
+data = Hash.new
+data['id'] = '상점 고유번호'
+data['auth_code'] = '인증키'
+data['device']= 'openapi'
+data['type']='phone'
+data['number'] = '고객 휴대폰 번호'
+data['page']=1
+data['count'] = 50
+
+uri = URI.parse(url)
+request = Net::HTTP::Post.new(uri)
+request.set_form_data(data)
+
+req_options = {
+	use_ssl: uri.scheme == "https",
+}
+
+response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+	http.request(request)
+end
+
+if response.code =="200"
+	jdata = Json.parse(response.body)  #  JSON 결과
+end
+
+```
+
+### python 호출 예시
+
+```python
+# python 호출 예시 (get방식)
+import requests
+
+url = "https://stampang.com/api/open/history"
+
+data = Hash.new
+data['id'] = '상점 고유번호'
+data['auth_code'] = '인증키'
+data['device']= 'openapi'
+data['type']='phone'
+data['number'] = '고객 휴대폰 번호'
+data['page']=1
+data['count'] = 50
+
+res=requests.post(url, data=data)
+
+jdata = res.json()  #  JSON 결과
+```
 
 
 ## 003. 보유 스탬프(포인트) 조회
@@ -215,4 +266,55 @@ result가 false 인 경우 list 자체가 없음
  | msg | 결과 메세지 | 성공시 "ok", 실패시 실패 사유 |
  | total_count | 보유 스탬프(포인트) | |
 
+### ruby 호출 예시
+```ruby
+# ruby 호출 예시 (post방식)
+
+require 'net/http'
+url = "https://stampang.com/api/open/balance"
+
+data = Hash.new
+data['id'] = '상점 고유번호'
+data['auth_code'] = '인증키'
+data['device']= 'openapi'
+data['type']='phone'
+data['number'] = '고객 휴대폰 번호'
+
+uri = URI.parse(url)
+request = Net::HTTP::Post.new(uri)
+request.set_form_data(data)
+
+req_options = {
+	use_ssl: uri.scheme == "https",
+}
+
+response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+	http.request(request)
+end
+
+if response.code =="200"
+	jdata = Json.parse(response.body)  #  JSON 결과
+end
+
+```
+
+### python 호출 예시
+
+```python
+# python 호출 예시 (get방식)
+import requests
+
+url = "https://stampang.com/api/open/balance"
+
+data = Hash.new
+data['id'] = '상점 고유번호'
+data['auth_code'] = '인증키'
+data['device']= 'openapi'
+data['type']='phone'
+data['number'] = '고객 휴대폰 번호'
+
+res=requests.post(url, data=data)
+
+jdata = res.json()  #  JSON 결과
+```
 
