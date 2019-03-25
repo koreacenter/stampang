@@ -64,7 +64,6 @@ API 사용에 불편함이 있으시면 스탬프팡으로 문의하세요!
  | total_point | 보유 스탬프(포인트) |  result가 true일 경우만 있음 |
 
 ```ruby
-### 예시 1 ###
 # ruby 호출 예시 (post방식)
 
 require 'net/http'
@@ -92,16 +91,28 @@ response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
 end
 
 if response.code =="200"
-	jdata = Json.parse(response.body)  #  결과
+	jdata = Json.parse(response.body)  #  JSON 결과
 end
 
-### 예시 2 ####
+
 
 # python 호출 예시 (get방식)
-import request
-	
-res = request.get("http://stampang-test.makeshop.co.kr/api/open/history?id=1&device=openapi&auth_code=1117c648c4a5ca29dc2eb61f60e52dbe8&number=01054771431&type=phone&page=1&count=50")
-jdata = res.json() # JSON 형태의 결과값 
+import requests
+
+url = "http://stampang-test.makeshop.co.kr/api/open/history"
+
+data = Hash.new
+data['id'] = '상점 고유번호'
+data['device_id']= 'openapi'
+data['auth_code'] = '인증키'
+data['number'] = '고객 휴대폰 번호'
+data['type']='phone'
+data['page']=1
+data['count'] = 50
+
+res=requests.post(url, data=data)
+
+jdata = r.json()  #  JSON 결과
 ```
 
 
