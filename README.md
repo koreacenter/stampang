@@ -73,8 +73,8 @@ url = "https://stampang.com/api/open/save"  #  차감시 "https://stampang.com/a
 data = Hash.new
 data['id'] = '상점 고유번호'
 data['auth_code'] = '인증키'
-data['device']= 'openapi'
-data['type']='phone'
+data['device'] = 'openapi'
+data['type'] ='phone'
 data['number'] = '고객 휴대폰 번호'
 data['count'] = 2
 
@@ -96,8 +96,8 @@ url = "https://stampang.com/api/open/save"  #  차감시 "https://stampang.com/a
 data = Hash.new
 data['id'] = '상점 고유번호'
 data['auth_code'] = '인증키'
-data['device']= 'openapi'
-data['type']='phone'
+data['device'] = 'openapi'
+data['type'] ='phone'
 data['number'] = '고객 휴대폰 번호'
 data['count'] = 2
 
@@ -185,10 +185,10 @@ url = "https://stampang.com/api/open/history"
 data = Hash.new
 data['id'] = '상점 고유번호'
 data['auth_code'] = '인증키'
-data['device']= 'openapi'
-data['type']='phone'
+data['device'] = 'openapi'
+data['type'] ='phone'
 data['number'] = '고객 휴대폰 번호'
-data['page']=1
+data['page'] = 1
 data['count'] = 50
 
 response = Faraday.get url  # Faraday gem install  # gem install faraday -v 0.9.2
@@ -208,10 +208,10 @@ url = "https://stampang.com/api/open/history"
 data = Hash.new
 data['id'] = '상점 고유번호'
 data['auth_code'] = '인증키'
-data['device']= 'openapi'
-data['type']='phone'
+data['device'] = 'openapi'
+data['type'] ='phone'
 data['number'] = '고객 휴대폰 번호'
-data['page']=1
+data['page'] = 1
 data['count'] = 50
 
 res=requests.post(url, data=data)
@@ -250,8 +250,8 @@ url = "https://stampang.com/api/open/balance"
 data = Hash.new
 data['id'] = '상점 고유번호'
 data['auth_code'] = '인증키'
-data['device']= 'openapi'
-data['type']='phone'
+data['device'] = 'openapi'
+data['type'] = 'phone'
 data['number'] = '고객 휴대폰 번호'
 
 response = Faraday.get url  # Faraday gem install  # gem install faraday -v 0.9.2
@@ -271,8 +271,8 @@ url = "https://stampang.com/api/open/balance"
 data = Hash.new
 data['id'] = '상점 고유번호'
 data['auth_code'] = '인증키'
-data['device']= 'openapi'
-data['type']='phone'
+data['device'] = 'openapi'
+data['type'] = 'phone'
 data['number'] = '고객 휴대폰 번호'
 
 res=requests.post(url, data=data)
