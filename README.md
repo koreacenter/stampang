@@ -66,9 +66,9 @@ API 사용에 불편함이 있으시면 스탬프팡으로 문의하세요!
 
 ### ruby 호출 예시
 ```ruby
-# ruby 호출 예시 (post방식)
+# ruby 호출 예시 (get방식)
 
-require 'net/http'
+
 url = "https://stampang.com/api/open/save"  #  차감시 "https://stampang.com/api/open/use"
 
 data = Hash.new
@@ -79,21 +79,10 @@ data['type']='phone'
 data['number'] = '고객 휴대폰 번호'
 data['count'] = 2
 
-uri = URI.parse(url)
-request = Net::HTTP::Post.new(uri)
-request.set_form_data(data)
+response = Faraday.get url  # Faraday gem install  # gem install faraday -v 0.9.2
 
-req_options = {
-	use_ssl: uri.scheme == "https",
-}
+jdata = Json.parse(response.body)  #  JSON 결과
 
-response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
-	http.request(request)
-end
-
-if response.code =="200"
-	jdata = Json.parse(response.body)  #  JSON 결과
-end
 
 ```
 
@@ -190,9 +179,8 @@ result가 false 인 경우 list 자체가 없음
 
 
 ```ruby
-# ruby 호출 예시 (post방식)
+# ruby 호출 예시 (get방식)
 
-require 'net/http'
 url = "https://stampang.com/api/open/history"
 
 data = Hash.new
@@ -204,21 +192,9 @@ data['number'] = '고객 휴대폰 번호'
 data['page']=1
 data['count'] = 50
 
-uri = URI.parse(url)
-request = Net::HTTP::Post.new(uri)
-request.set_form_data(data)
+response = Faraday.get url  # Faraday gem install  # gem install faraday -v 0.9.2
 
-req_options = {
-	use_ssl: uri.scheme == "https",
-}
-
-response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
-	http.request(request)
-end
-
-if response.code =="200"
-	jdata = Json.parse(response.body)  #  JSON 결과
-end
+jdata = Json.parse(response.body)  #  JSON 결과
 
 ```
 
@@ -268,9 +244,8 @@ jdata = res.json()  #  JSON 결과
 
 ### ruby 호출 예시
 ```ruby
-# ruby 호출 예시 (post방식)
+# ruby 호출 예시 (get방식)
 
-require 'net/http'
 url = "https://stampang.com/api/open/balance"
 
 data = Hash.new
@@ -280,21 +255,9 @@ data['device']= 'openapi'
 data['type']='phone'
 data['number'] = '고객 휴대폰 번호'
 
-uri = URI.parse(url)
-request = Net::HTTP::Post.new(uri)
-request.set_form_data(data)
+response = Faraday.get url  # Faraday gem install  # gem install faraday -v 0.9.2
 
-req_options = {
-	use_ssl: uri.scheme == "https",
-}
-
-response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
-	http.request(request)
-end
-
-if response.code =="200"
-	jdata = Json.parse(response.body)  #  JSON 결과
-end
+jdata = Json.parse(response.body)  #  JSON 결과
 
 ```
 
