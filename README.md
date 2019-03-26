@@ -68,7 +68,6 @@ API 사용에 불편함이 있으시면 스탬프팡으로 문의하세요!
 ```ruby
 # ruby 호출 예시 (get방식)
 
-
 url = "https://stampang.com/api/open/save"  #  차감시 "https://stampang.com/api/open/use"
 
 data = Hash.new
