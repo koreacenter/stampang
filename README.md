@@ -93,7 +93,7 @@ import requests
 
 url = "https://stampang.com/api/open/save"  #  차감시 "https://stampang.com/api/open/use"
 
-data = Hash.new
+data = {}
 data['id'] = '상점 고유번호'
 data['auth_code'] = '인증키'
 data['device'] = 'openapi'
@@ -205,7 +205,7 @@ import requests
 
 url = "https://stampang.com/api/open/history"
 
-data = Hash.new
+data = {}
 data['id'] = '상점 고유번호'
 data['auth_code'] = '인증키'
 data['device'] = 'openapi'
@@ -268,7 +268,7 @@ import requests
 
 url = "https://stampang.com/api/open/balance"
 
-data = Hash.new
+data = {}
 data['id'] = '상점 고유번호'
 data['auth_code'] = '인증키'
 data['device'] = 'openapi'
