@@ -44,7 +44,7 @@ API 사용에 불편함이 있으시면 스탬프팡으로 문의하세요!
 
 ### 호출 파라메타 정의 (request)
 
- | 필드명 | 설명 | 비고 | 필수 여부|
+ | 필드명 | 설명 | 비고 | 필수 여부 |
  | ------------- | ------------- | ------------- | :---: |
  | id | 상점 고유번호 |  | O |
  | auth_code | 인증키 |  개발팀한테 받은 인증키 |  O |
@@ -74,11 +74,11 @@ data = Hash.new
 data['id'] = '상점 고유번호'
 data['auth_code'] = '인증키'
 data['device'] = 'openapi'
-data['type'] ='phone'
+data['type'] = 'phone'
 data['number'] = '고객 휴대폰 번호'
 data['count'] = 2
 
-response = Faraday.post(url, data)  # Faraday gem install  # gem install faraday -v 0.9.2
+response = Faraday.post(url, data)  #  Faraday gem install  # gem install faraday -v 0.9.2
 
 jdata = JSON.parse(response.body)  #  JSON 결과
 
@@ -97,7 +97,7 @@ data = {}
 data['id'] = '상점 고유번호'
 data['auth_code'] = '인증키'
 data['device'] = 'openapi'
-data['type'] ='phone'
+data['type'] = 'phone'
 data['number'] = '고객 휴대폰 번호'
 data['count'] = 2
 
@@ -186,12 +186,12 @@ data = Hash.new
 data['id'] = '상점 고유번호'
 data['auth_code'] = '인증키'
 data['device'] = 'openapi'
-data['type'] ='phone'
+data['type'] = 'phone'
 data['number'] = '고객 휴대폰 번호'
 data['page'] = 1
 data['count'] = 50
 
-response = Faraday.post(url, data)  # Faraday gem install  # gem install faraday -v 0.9.2
+response = Faraday.post(url, data)  #  Faraday gem install  # gem install faraday -v 0.9.2
 
 jdata = JSON.parse(response.body)  #  JSON 결과
 
@@ -209,7 +209,7 @@ data = {}
 data['id'] = '상점 고유번호'
 data['auth_code'] = '인증키'
 data['device'] = 'openapi'
-data['type'] ='phone'
+data['type'] = 'phone'
 data['number'] = '고객 휴대폰 번호'
 data['page'] = 1
 data['count'] = 50
@@ -254,7 +254,7 @@ data['device'] = 'openapi'
 data['type'] = 'phone'
 data['number'] = '고객 휴대폰 번호'
 
-response = Faraday.post(url, data)  # Faraday gem install  # gem install faraday -v 0.9.2
+response = Faraday.post(url, data)  #  Faraday gem install  # gem install faraday -v 0.9.2
 
 jdata = JSON.parse(response.body)  #  JSON 결과
 
