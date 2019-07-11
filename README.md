@@ -88,7 +88,7 @@ jdata = JSON.parse(response.body)  #  JSON 결과
 ### python 호출 예시
 
 ```python
-# python 호출 예시 (get방식)
+# python 호출 예시 (post방식)
 import requests
 
 url = "https://stampang.com/api/open/save"  #  차감시 "https://stampang.com/api/open/use"
