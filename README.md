@@ -144,7 +144,7 @@ result가 false 인 경우 list 자체가 없음
 		<td>성공시 "ok" , 실패시 실패사유</td>
 	</tr>
   <tr>
-    <td rowspan="7">list<Br/>(Array)</td>
+    <td rowspan="8">list<Br/>(Array)</td>
   </tr>
   <tr>
 	<td> id </td>
@@ -168,7 +168,7 @@ result가 false 인 경우 list 자체가 없음
   </tr>
   <tr>
 	<td> count </td>
-	<td> 적립수/수 </td>
+	<td> 적립/차감 수 </td>
 	<td>  </td>
   </tr>
   <tr>
