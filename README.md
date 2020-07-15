@@ -146,36 +146,41 @@ result가 false 인 경우 list 자체가 없음
   <tr>
     <td rowspan="7">list<Br/>(Array)</td>
   </tr>
-	<tr>
-		<td> id </td>
-		<td> 고유번호 </td>
-		<td> </td>
-  </tr>
-	<tr>
-		<td> login_id </td>
-		<td> 적립/한 상점의 login_id </td>
-		<td> </td>
+  <tr>
+	<td> id </td>
+	<td> 고유번호 </td>
+	<td> </td>
   </tr>
   <tr>
-		<td> place </td>
-		<td> 지점명 </td>
-		<td> 지점명이 빈값일 경우 상점명이 리턴됨 </td>
-	</tr>
-	<tr>
-		<td> type  </td>
-		<td> 적립/차감 구분값 </td>
-		<td> 0: 적립, 1: 차감 </td>
-	</tr>
-	<tr>
-		<td> content </td>
-		<td> 내용 </td>
-		<td> "적립","차감","양도" 등 </td>
-	</tr>
-	<tr>
-		<td> date </td>
-		<td> 적립/차감한 날짜 </td>
-		<td> UTC 포맷 </td>
-	</tr>
+	<td> login_id </td>
+	<td> 적립/한 상점의 login_id </td>
+	<td> </td>
+  </tr>
+  <tr>
+	<td> place </td>
+	<td> 지점명 </td>
+	<td> 지점명이 빈값일 경우 상점명이 리턴됨 </td>
+  </tr>
+  <tr>
+	<td> type  </td>
+	<td> 적립/차감 구분값 </td>
+	<td> 0: 적립, 1: 차감 </td>
+  </tr>
+  <tr>
+	<td> count </td>
+	<td> 적립수/수 </td>
+	<td>  </td>
+  </tr>
+  <tr>
+	<td> content </td>
+	<td> 내용 </td>
+ 	<td> "적립","차감","양도" 등 </td>
+  </tr>
+  <tr>
+	<td> date </td>
+	<td> 적립/차감한 날짜 </td>
+	<td> UTC 포맷 </td>
+  </tr>
 </table>
 
 
