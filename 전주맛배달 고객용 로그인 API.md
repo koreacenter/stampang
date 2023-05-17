@@ -3,7 +3,7 @@
 ##  HOST 정보
 * 도메인 : https://stampang.com
 * 호출 방식 : POST, GET 둘다 가능
-* JWT 인증 방식 사용함.
+* JWT 인증 방식, GQL 사용함
 
 ## 1. 이메일 로그인(JWT 인증키 발급)
 >/v2/jauth/email/auth
@@ -70,3 +70,35 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhbGciOiJSUzI1NiIsI
 | result | Y | boolean | 성공 여부 |
 | msg | Y | String | 결과 메세지 |
 | token | Y | String | jwt 인증 토큰키 |
+
+
+## 4. GQL
+>/gql
+### 4.1 고객 정보 GQL
+* Query
+<pre>
+{
+  member {
+    pk # 고객 고유번호 (Int)
+    phone # 휴대폰번호 (String)
+    email # 이메일 (String)
+    nick # 닉네임 (String)
+  }
+}
+</pre>
+### 4.2 주소록 GQL
+* Query
+<pre>
+{
+  memberAddressList {
+    edges {
+      node {
+        pk # 고유번호
+        isMain # 대표주소 유무 (Boolean)
+        addr1 # 주소
+        addr2 # 상세주소
+      }
+    }
+  }
+}
+</pre>
