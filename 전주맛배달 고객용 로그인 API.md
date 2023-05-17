@@ -74,6 +74,9 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhbGciOiJSUzI1NiIsI
 
 ## 4. GQL
 >/gql
+
+* JWT 인증 필수
+
 ### 4.1 고객 정보 GQL
 * Query
 <pre>
