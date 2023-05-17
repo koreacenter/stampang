@@ -94,11 +94,47 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhbGciOiJSUzI1NiIsI
     edges {
       node {
         pk # 고유번호
-        isMain # 대표주소 유무 (Boolean)
+        isMain # 대표주소 여부 (Boolean)
         addr1 # 주소
         addr2 # 상세주소
       }
     }
   }
+}
+</pre>
+
+### 4.3 주소록 추가 GQL
+* Query(mutation)
+<pre>
+mutation addAddress(
+  $addr1: String!
+  $addr2: String!
+  $isMain: Boolean
+  $lat: Float
+  $lng: Float
+  $region: String!
+) {
+  memberAddressAdd(
+    addr1: $addr1 # 주소
+    addr2: $addr2 # 상세주소
+    isMain: $isMain # 대표주소 여부
+    lat: $lat # 위치정보 latitude
+    lng: $lng # 위치정보 longitude
+    region: $region # 지역 코드
+  ) {
+    msg
+    result
+  }
+}
+</pre>
+* Variables
+<pre>
+{
+  "addr1": "서울 금천구 가산디지털2로 53 (한라시그마밸리)",
+  "addr2": "5층",
+  "lat": 37.47330519112502,
+  "lng": 126.88102684601252,
+  "isMain": true,
+  "region": "1154510100"
 }
 </pre>
