@@ -2,6 +2,7 @@
 
 ##  HOST 정보
 * 도메인 : https://stampang.com
+* GQL 도메인 : https://order.stampang.com
 * 호출 방식 : POST, GET 둘다 가능
 * JWT 인증 방식, GQL 사용함
 
@@ -73,7 +74,7 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhbGciOiJSUzI1NiIsI
 
 
 ## 4. GQL
->/gql
+>https://order.stampang.com/gql
 
 * JWT 인증 필수
 
