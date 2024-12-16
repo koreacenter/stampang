@@ -1,12 +1,14 @@
-# 전주맛배달 고객용 로그인 API
+# 2024.12.31 이후 스탬프팡 서비스가 종료됩니다. 그동안 스탬프팡을 이용해 주신 모든 분들께 진심으로 감사드립니다.
 
-##  HOST 정보
+## 전주맛배달 고객용 로그인 API
+
+###  HOST 정보
 * 도메인 : https://stampang.com
 * GQL 도메인 : https://order.stampang.com
 * 호출 방식 : POST, GET 둘다 가능
 * JWT 인증 방식, GQL 사용함
 
-## 1. 이메일 로그인(JWT 인증키 발급)
+### 1. 이메일 로그인(JWT 인증키 발급)
 >/v2/jauth/email/auth
 
 [REQ]
@@ -23,8 +25,8 @@
 | token | Y | String | jwt 인증 토큰키 |
 
 
-## 2. 휴대폰 로그인
-### 2.1 휴대폰 인증번호 발송
+### 2. 휴대폰 로그인
+#### 2.1 휴대폰 인증번호 발송
 >/v2/api/member/phone/send
 
 [REQ]
@@ -39,7 +41,7 @@
 | result | Y |  boolean    | 성공 여부 |
 | msg | Y |  String  | 결과 메세지 |
 
-### 2.2 휴대폰 인증번호 확인(JWT 인증키 발급)
+#### 2.2 휴대폰 인증번호 확인(JWT 인증키 발급)
 >/v2/jauth/phone/auth
 
 [REQ]
@@ -56,7 +58,7 @@
 | token | Y | String | jwt 인증 토큰키 |
 | email | Y | String | 고객 이메일 주소 |
 
-## 3. JWT token 갱신
+### 3. JWT token 갱신
 >/v2/jauth/refresh
 
 [REQ]
@@ -73,12 +75,12 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhbGciOiJSUzI1NiIsI
 | token | Y | String | jwt 인증 토큰키 |
 
 
-## 4. GQL
+### 4. GQL
 >https://order.stampang.com/gql
 
 * JWT 인증 필수
 
-### 4.1 고객 정보 GQL
+#### 4.1 고객 정보 GQL
 * Query
 <pre>
 {
@@ -90,7 +92,7 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhbGciOiJSUzI1NiIsI
   }
 }
 </pre>
-### 4.2 주소록 GQL
+#### 4.2 주소록 GQL
 * Query
 <pre>
 {
@@ -107,7 +109,7 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhbGciOiJSUzI1NiIsI
 }
 </pre>
 
-### 4.3 주소록 추가 GQL
+#### 4.3 주소록 추가 GQL
 * Query(mutation)
 <pre>
 mutation addAddress(
